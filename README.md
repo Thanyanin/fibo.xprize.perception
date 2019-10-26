@@ -1,4 +1,4 @@
-# FIBO XPRIZE Perception Unit
+# FIBO XPRIZE : Perception Unit
 ออกแบบและพัฒนาระบบเกี่ยวกับ Sense ทั้ง 5 ของมนุษย์ ประกอบไปด้วย `Sight`, `Hearing`, Smell, Taste, และ Touch  การออกแบบและพัฒนาระบบจะมุ่งเน้น 2 เรื่องคือ Sight และ Hearing
 
 # System Overview
