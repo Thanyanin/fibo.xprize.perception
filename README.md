@@ -18,8 +18,11 @@
 - แสดงค่า Rotation (roll, pitch, yaw) ของ Operator ใน Topic ชื่อว่า `/operator/rotation`
     - รูปแบบของข้อมูลคือ `<roll>,<pitch>,<yaw>` มีค่าระหว่า `-90.0` ถึง `+90.0` มีหนว่ยเป็น **Degree** ข้อมูลประเภท **Floting**
 
+## Avatar
+- แสดงค่าระยะห่างที่ตรวจวัดได้ระหว่าง Avatar และ Object ด้านหน้า *(การทดลอง)*
+  - รูปแบบของข้อมูลคือ `<distance>` มีค่าระหว่า `0.0` ถึง `100.0` มีหนว่ยเป็น **Meter** ข้อมูลประเภท **Floting**
 
 # Note
-- ให้แต่ละทีมย่อย/คนทำการ **fork** ไปยัง User ของตัวเอง
+- ให้แต่ละทีมย่อย/คนทำการ **Fork** ไปยัง User ของตัวเอง
 - เมื่อพัฒนาหรือแก้ใขเสร็จแล้ว ให้ทำการ **Pull Request** กลับเข้ามาที่ Repo นี้
 - เก็บ Source Code ต่าง ๆ ไว้ตาม Directory ของทีมย่อยตัวเอง ประกอบไปด้วย [Vision.Operator](Vision.Operator), [Vision.Avatar](Vision.Avatar), [Sound.Operator](Sound.Operator), และ [Sound.Avatar](Sound.Avatar)
