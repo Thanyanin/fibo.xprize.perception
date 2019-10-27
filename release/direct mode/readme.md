@@ -1,1 +1,1 @@
-source code ของ direct mode ที่ release แล้ว เก็บไว้ที่นี่
+Source Code ของ Direct Mode ที่ Release แล้ว เก็บไว้ที่นี่
