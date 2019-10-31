@@ -1,4 +1,8 @@
 # Sound Avatar
-udpsent->Sound sending via UDP
-udprecieve->Sound recieving via UDP
-SoundStreaming
+udpsent->Sound sendvia UDP
+
+udprecieve->Sound recieve via UDP
+
+SoundStreaming->Sound send and recieve via UDP
+
+ServerAvatar->Avatar(Server) send and recieve sound
