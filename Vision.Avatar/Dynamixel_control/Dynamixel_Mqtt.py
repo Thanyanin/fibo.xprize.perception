@@ -1,8 +1,6 @@
 import paho.mqtt.client as mqtt
 from dynamixel_control import Dynamixel
 
-# host = "broker.mqttdashboard.com"
-# port = 8000
 host = "192.168.1.246"
 port = 1883
 
@@ -81,7 +79,7 @@ def on_message(client, userdata,msg):
             m(2, DynamixelgoalposID2)
             m(12, DynamixelgoalposID12)
             print([X_axis(data[0]),Z_axis(data[1]),Y_axis(data[2])])
-            #print("RawData:" + data)
+            
         else:
             print("WTF " + str(data))
     else:
