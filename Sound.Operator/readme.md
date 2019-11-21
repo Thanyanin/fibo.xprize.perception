@@ -1,4 +1,4 @@
-Communication Module
+Communication Module Client
 
 Requirement:
 - Python 3.6
