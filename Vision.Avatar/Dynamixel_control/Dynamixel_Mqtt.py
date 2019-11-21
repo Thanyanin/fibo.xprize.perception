@@ -1,24 +1,27 @@
 import paho.mqtt.client as mqtt
-from dynamixel_control import Dynamixel
+# from dynamixel_control import Dynamixel
+from squaternion import euler2quat, quat2euler, Quaternion
 
-host = "192.168.1.246"
-port = 1883
+# host = "192.168.1.246"
+# port = 1883
+host = "broker.mqttdashboard.com"
+port = 8000
+# portDynamixel = Dynamixel('COM6',1000000)
+# portDynamixel.connect()
+# motor_type = 'Ax'
 
-portDynamixel = Dynamixel('COM6',1000000)
-portDynamixel.connect()
-motor_type = 'Ax'
 
-def m(ID, position):
-    portDynamixel.setDeviceMoving(ID, motor_type, position, 1023, 1023)#ID, type, goal position, goal speed, max torque
-def p(ID):
-    return portDynamixel.getMotorPosition(ID)
+# def m(ID, position):
+#     portDynamixel.setDeviceMoving(ID, motor_type, position, 1023, 1023)#ID, type, goal position, goal speed, max torque
+# def p(ID):
+#     return portDynamixel.getMotorPosition(ID)
 
-DynamixelposID3 = p(3)
-DynamixelposID2 = p(2)
-DynamixelposID12 = p(12)
-DynamixelgoalposID3 = p(3)
-DynamixelgoalposID2 = p(2)
-DynamixelgoalposID12 = p(12)
+# DynamixelposID3 = p(3)
+# DynamixelposID2 = p(2)
+# DynamixelposID12 = p(12)
+# DynamixelgoalposID3 = p(3)
+# DynamixelgoalposID2 = p(2)
+# DynamixelgoalposID12 = p(12)
 
 def X_axis(value):
     value = float(value)
@@ -65,19 +68,23 @@ def Z_axis(value):
 
 def on_connect(self, client, userdata, rc):
     print("MQTT Connected.")
-    self.subscribe("/operator/rotation")
-
+    # self.subscribe("/operator/rotation")
+    self.subscribe("TEST/MQTT")
 def on_message(client, userdata,msg):
-    data = msg.payload.decode("utf-8", "strict")
-    if "," in data:
-        data = data.split(",")
+    data_Q = msg.payload.decode("utf-8", "strict")
+    print(data_Q)
+    if "," in data_Q:
+        data_Q = str(data_Q).split(",")
+        print(data_Q)
+        data = quat2euler(float(data_Q[0]),float(data_Q[1]),float(data_Q[2]),float(data_Q[3]),degrees=True)
+        print(data)
         if len(data) == 3:
-            DynamixelgoalposID3 = X_axis(data[0])
-            DynamixelgoalposID2 = Z_axis(data[1])
-            DynamixelgoalposID12 = Y_axis(data[2])
-            m(3, DynamixelgoalposID3)
-            m(2, DynamixelgoalposID2)
-            m(12, DynamixelgoalposID12)
+            # DynamixelgoalposID3 = X_axis(data[0])
+            # DynamixelgoalposID2 = Z_axis(data[1])
+            # DynamixelgoalposID12 = Y_axis(data[2])
+            # m(3, DynamixelgoalposID3)
+            # m(2, DynamixelgoalposID2)
+            # m(12, DynamixelgoalposID12)
             print([X_axis(data[0]),Z_axis(data[1]),Y_axis(data[2])])
             
         else:
