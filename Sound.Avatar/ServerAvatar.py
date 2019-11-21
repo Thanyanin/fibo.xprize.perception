@@ -8,7 +8,7 @@ RATE = 44100
 ServerIP='192.168.1.191'
 ServerPort=20001
 
-# addr=()
+addr=()
 
 p = pyaudio.PyAudio()
 #Send
