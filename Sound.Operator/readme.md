@@ -1,7 +1,7 @@
 Communication Module
 
-Library:
-- socket : to send sound via network (as Client)
+Requirement:
+- Python 3.6
 - PyAudio : Dont forget to prepare python 3.6 before install this library.
 
 How to use this:
