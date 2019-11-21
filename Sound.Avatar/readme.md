@@ -1,8 +1,19 @@
 # Sound Avatar
-udpsent->Sound sendvia UDP
 
-udprecieve->Sound recieve via UDP
+requirement
+    -installing python 3.6
+    -installing pyaudio
 
-SoundStreaming->Sound send and recieve via UDP
 
-ServerAvatar->Avatar(Server) send and recieve sound
+udpsent
+    -sending sound  via UDP
+
+udprecieve
+    -recieving sound  via UDP
+
+SoundStreaming
+    -sending and recieving sound  via UDP
+
+
+CommunicationModule_Server
+    -run this code for being server that can send and receive sound via Network
