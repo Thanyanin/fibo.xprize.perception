@@ -45,6 +45,6 @@
     - ค่า**ลบ**แปลว่าไม่สามารถวัดระยะทางได้ มีค่า**น้อยกว่า** `0.0` มีหน่วยเป็น **Meter** ข้อมูลประเภท **Floting**
 
 # Note
-- ให้แต่ละทีมย่อย/คนทำการ **Fork** ไปยัง User ของตัวเอง
-- เมื่อพัฒนาหรือแก้ใขเสร็จแล้ว ให้ทำการ **Pull Request** กลับเข้ามาที่ Repo นี้
+- ให้แต่ละทีมย่อยทำการ **Commit** ไปยัง **Branch** ของทีมตัวเอง
+- เมื่อพัฒนาหรือแก้ใขเสร็จแล้ว ให้ทำการ **Pull Request** กลับเข้ามาที่ **Master Branch**
 - เก็บ Source Code ต่าง ๆ ไว้ตาม Directory ของทีมย่อยตัวเอง ประกอบไปด้วย [Vision.Operator](Vision.Operator), [Vision.Avatar](Vision.Avatar), [Sound.Operator](Sound.Operator), และ [Sound.Avatar](Sound.Avatar)
