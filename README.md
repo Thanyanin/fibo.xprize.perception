@@ -21,7 +21,7 @@
 
 
 # Network Configuration
-![รูป](http://www.google.com/search?q=รูป private network)
+![รูป](http://www.google.com/search?q=รูป+private+network)
 - Broker ([Mosquitto](www.mosquitto.org)) จะติดตั้งอยู่ที่ Avatar โดยใช้ MQTT Protocol ในการสื่อสารระหว่าง Operator และ Avatar
 
 
