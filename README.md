@@ -7,6 +7,12 @@
 ภาพรวมของระบบ
 
 
+# Feature (*freeeeeeze !*)
+- การรับภาพจาก Avatar (Stereoscopic) ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
+- การควบคุมมุมมองของ Avatar ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
+- การสื่อสารด้วยเสียง ([Link 1](Sound.Operator), [Link 2](Sound.Avatar))
+
+
 # Mode
 ![Direct Mode](src/img/Perception&#32;Mode&#32;-&#32;2019-09-26&#32;B.png)
 รูปแบบการทำงานสำหรับ Direct Mode
@@ -14,14 +20,12 @@
 รูปแบบการทำงานสำหรับ Virtual Reality Mode
 
 
+# Network Configuration
+![รูป](http://www.google.com/search?q=รูป private network)
+- Broker ([Mosquitto](www.mosquitto.org)) จะติดตั้งอยู่ที่ Avatar โดยใช้ MQTT Protocol ในการสื่อสารระหว่าง Operator และ Avatar
+
+
 # Communication
-
-## Setup
-![Connectivity](www.google.com)
-ตัว Broker ([Mosquitto](www.mosquitto.org)) จะติดตั้งอยู่ที่ Avatar โดยใช้ MQTT Protocol ในการสื่อสารระหว่าง Operator และ Avatar โดยมีลายละเอียดดังนี้
-    - การสื่อสารด้วยเสียง ([Link 1](Sound.Operator), [Link 2](Sound.Avatar))
-    - การควบคุมมุมมองของ Avatar ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
-
 ## Operator
 - *(การทดลอง)* แสดงค่า Rotation ของ Operator ใน Topic ชื่อว่า `/operator/rotation` เพื่อใช้ในการควบคุม**การหมุนหัว**ของ Avatar  รูปแบบของข้อมูลคือ `<roll>,<pitch>,<yaw>` **(ในอนาคตจะเปลี่ยนไปใช้ Quaternion)**
     - **roll**
@@ -36,7 +40,7 @@
       - ค่า**บวก**แสดงถึงการหันไปทางขวา มีค่ามากกว่า `0.0` ถึง `+90.0` มีหน่วยเป็น **Degree** ข้อมูลประเภท **Floting**
       - ค่า**ศูนย์** แสดงถึงการมองตรง มีค่าเท่ากับ `0.0`  มีหน่วยเป็น **Degree** ข้อมูลประเภท **Floting**
       - ค่า**ลบ**แสดงถึงการหันไปทางซ้าย มีค่าน้อยกว่า `0.0` ถึง `-90.0` มีหน่วยเป็น **Degree** ข้อมูลประเภท **Floting**
-- *(การทดลอง)* แสดงคำสั่งการบังคับของ Operator ใน Topic ชื่อว่า `/operator/remote` เพื่อใช้ควบคุม**ความเร็วและทิศทาง**ในการเคลื่อนที่ของ Avatar  รูปแบของข้อมูลคือ `<throttle>,<steering>`
+- *(การทดลอง, หน้าที่หลักของทีม mobility)* แสดงคำสั่งการบังคับของ Operator ใน Topic ชื่อว่า `/operator/remote` เพื่อใช้ควบคุม**ความเร็วและทิศทาง**ในการเคลื่อนที่ของ Avatar  รูปแบของข้อมูลคือ `<throttle>,<steering>`
   - **throttle**
     - ค่า**บวก**แสดงถึงการเดินหน้า มีค่ามากกว่า `0.0` ถึง `1.0` ข้อมูลประเภท **Floting**
     - ค่า**ศูนย์** แสดงถึงการหยุดอยู่กับที่ มีค่าเท่ากับ `0.0` ข้อมูลประเภท **Floting**
