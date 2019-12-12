@@ -8,7 +8,7 @@
 
 
 # Feature (*freeeeeeze !*)
-- การรับภาพจาก Avatar (Stereoscopic) ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
+- การรับภาพจาก Avatar ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
 - การควบคุมมุมมองของ Avatar ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
 - การสื่อสารด้วยเสียง ([Link 1](Sound.Operator), [Link 2](Sound.Avatar))
 
