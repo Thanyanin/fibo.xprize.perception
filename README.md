@@ -14,16 +14,16 @@
 รูปแบบการทำงานสำหรับ Virtual Reality Mode
 
 
-# Communication (MQTT)
+# Communication
 
 ## Setup
 ![Connectivity](www.google.com)
 ตัว Broker ([Mosquitto](www.mosquitto.org)) จะติดตั้งอยู่ที่ Avatar โดยใช้ MQTT Protocol ในการสื่อสารระหว่าง Operator และ Avatar โดยมีลายละเอียดดังนี้
-    - การสื่อสารด้วยเสียง ([Link 1](https://github.com/XPrize-Perception-Team/fibo.xprize.perception/tree/master/Sound.Operator), [Link 2](https://github.com/XPrize-Perception-Team/fibo.xprize.perception/tree/master/Sound.Avatar))
-    - การควบคุมมุมมองของ Avatar ([Link 1](https://github.com/XPrize-Perception-Team/fibo.xprize.perception/tree/master/Vision.Operator), [Link 2](https://github.com/XPrize-Perception-Team/fibo.xprize.perception/tree/master/Vision.Avatar))
+    - การสื่อสารด้วยเสียง ([Link 1](Sound.Operator), [Link 2](Sound.Avatar))
+    - การควบคุมมุมมองของ Avatar ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
 
 ## Operator
-- *(การทดลอง)* แสดงค่า Rotation ของ Operator ใน Topic ชื่อว่า `/operator/rotation` เพื่อใช้ในการควบคุม**การหมุนหัว**ของ Avatar  รูปแบบของข้อมูลคือ `<roll>,<pitch>,<yaw>` ``(ในอนาคตจะเปลี่ยนไปใช้ Quaternion)``
+- *(การทดลอง)* แสดงค่า Rotation ของ Operator ใน Topic ชื่อว่า `/operator/rotation` เพื่อใช้ในการควบคุม**การหมุนหัว**ของ Avatar  รูปแบบของข้อมูลคือ `<roll>,<pitch>,<yaw>` **(ในอนาคตจะเปลี่ยนไปใช้ Quaternion)**
     - **roll**
       - ค่า**บวก**แสดงถึงการเอียงคอไปทางขวา มีค่ามากกว่า `0.0` ถึง `+90.0` มีหน่วยเป็น **Degree** ข้อมูลประเภท **Floting**
       - ค่า**ศูนย์** แสดงถึงการเอียงคอตรง มีค่าเท่ากับ `0.0`  มีหน่วยเป็น **Degree** ข้อมูลประเภท **Floting**
