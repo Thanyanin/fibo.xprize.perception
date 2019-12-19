@@ -1,4 +1,6 @@
 # Communication Module Client
+## System Overview
+![Diagram](src/SoundSocketDiagram.JPG)
 
 ## Requirement:
 - Miniconda : https://docs.conda.io/en/latest/miniconda.html 
