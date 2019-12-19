@@ -16,6 +16,4 @@ Warning!!!!!
 Don't forget to check and change *server* IP and Port every time.[Change at serverAddressPort(Line 5)]
  
 # Maintainer
-- [Chawakorn Chaichanawirote](https://www.facebook.com/profile.php?id=100002425703930)
-- [Ryuu Boonpramuk](https://www.facebook.com/asfire)
 - [Nutkanate Apikomchatkup](https://www.facebook.com/nutkanate.aphikomchutkupt)
