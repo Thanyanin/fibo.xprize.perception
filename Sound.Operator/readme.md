@@ -1,8 +1,9 @@
 # Communication Module Client
 
 ## Requirement:
-- Python 3.6 (Download Python 3.6.8 here: https://www.python.org/downloads/release/python-368/ )
-- PyAudio : Don't forget to prepare python 3.6 before install this library.
+- Miniconda : https://docs.conda.io/en/latest/miniconda.html 
+- Create env Python 3.6 : "conda create -n myenv python=3.6"
+- PyAudio : "pip install PyAudio"
 
 ## How to install pyaudio:
 Follow this: https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-my-python-how-to-do-it/55630212
