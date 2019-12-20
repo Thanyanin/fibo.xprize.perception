@@ -7,16 +7,20 @@
 นำค่า rotation ที่ได้จาก Head Set และ rotation จาก Body Tracker มาคำนวณหา rotation ของส่วนหัวที่อ้างอิงกับลำตัว 
 จากนั้นส่งค่า rotation ซึ่งเป็นข้อมูล quarternion q0 = x, q1 = y, q2 = z, q3 = w เป็นข้อมูล float 4 ตำแหน่ง
 โดยใช้ protocol เป็น mqtt
+
 	Topic: /operator/head/rotation
 	Port: 1883
 	Format: q0:float,q1:float,q2:float,q3:float
+
 # Mobility
 นำค่า rotation ที่ได้จาก Body Tracker มาคำนวณหา rotation เมื่อปรับตำแหน่งอ้างอิงกับ set home เรียบร้อยแล้ว
 จากนั้นส่งค่า rotation ซึ่งเป็นข้อมูล quarternion q0 = x, q1 = y, q2 = z, q3 = w เป็นข้อมูล float 4 ตำแหน่ง
 โดยใช้ protocol เป็น mqtt
+
 	Topic: \operator\body\rotation
 	Port: 1883
 	Format: q0:float,q1:float,q2:float,q3:float
+
 # Manipulation
 นำค่า rotation ที่ได้จาก Body Tracker , translation และ rotation ของ Left sholder Tracker, Right sholder Tracker มาคำนวณหา rotation และ translation ของตำแหน่งหัวไหล่ที่อ้างอิงกับลำตัว
 นำค่า translation และ rotation ที่ได้จาก Left Hand Tracker , translation และ rotation ของ Right Hand Trackerมาคำนวณหา rotation และ translation, rotation ของตำแหน่งมือที่อ้างอิงกับหัวไหล่
