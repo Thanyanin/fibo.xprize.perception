@@ -22,7 +22,7 @@ public class mqtest : MonoBehaviour
     int state_start = 0;
     int set_zero = 0;
     float cur_time = 0;
-    string server_ip = "192.168.1.102";
+    string server_ip = "192.168.3.201";
     // Use this for initialization
     void Start()
     {
@@ -45,6 +45,22 @@ public class mqtest : MonoBehaviour
     {
 
         Debug.Log("Received: " + System.Text.Encoding.UTF8.GetString(e.Message));
+    }
+    string packmsg(Transform obj,bool mode)
+    {
+        string packed_msg;
+        if (mode)
+        {
+            //rotation pack
+            packed_msg = obj.localRotation.x + "," + obj.localRotation.y + "," + obj.localRotation.z + "," + obj.localRotation.w;
+        }
+        else
+        {
+            //translation pack
+            packed_msg = obj.localPosition.x + "," + obj.localPosition.y + "," + obj.localPosition.z;
+        }
+        Debug.Log(obj.name + ": " + packed_msg);
+        return packed_msg;
     }
     string trackWithRef(Quaternion refer, Quaternion track)
     {
@@ -163,7 +179,9 @@ public class mqtest : MonoBehaviour
         //client.Publish(topic_position_yaw, System.Text.Encoding.UTF8.GetBytes(yaw), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
         if (state_start == 1)
         {
-            client.Publish(topic_position_headrotation, System.Text.Encoding.UTF8.GetBytes(s_headrotation), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+            //client.Publish(topic_position_headrotation, System.Text.Encoding.UTF8.GetBytes(s_headrotation), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+            client.Publish(topic_position_headrotation, System.Text.Encoding.UTF8.GetBytes(packmsg(Head.transform,true)), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+
             Debug.Log(Head.transform.localEulerAngles);
             //client.Publish(topic_position_rotation, System.Text.Encoding.UTF8.GetBytes(all), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
             //client.Publish(topic_position_headrotation, System.Text.Encoding.UTF8.GetBytes(headWithBody), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);

@@ -84,11 +84,13 @@ public class q_translation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("-------------");
-        Debug.Log(CalibrateBody.localEulerAngles);
-        Debug.Log(CalibrateHead.localEulerAngles);
+        //Debug.Log("-------------");
+        //Debug.Log(CalibrateBody.localEulerAngles);
+        //Debug.Log(CalibrateHead.localEulerAngles);
         calibrate(DeviceBody, CalibrateBody, temp_body, true);
         calibrate(DeviceHead, CalibrateHead, temp_head, true);
+        calibrate(DeviceSholderLeft, CalibrateSholderLeft, temp_sholder_left_rotation, true);
+        calibrate(DeviceSholderLeft, CalibrateSholderLeft, temp_sholder_left_translation, false);
 
     }
 
