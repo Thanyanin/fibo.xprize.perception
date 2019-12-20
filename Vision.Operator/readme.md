@@ -17,7 +17,7 @@
 จากนั้นส่งค่า rotation ซึ่งเป็นข้อมูล quarternion q0 = x, q1 = y, q2 = z, q3 = w เป็นข้อมูล float 4 ตำแหน่ง
 โดยใช้ protocol เป็น mqtt
 
-	Topic: \operator\body\rotation
+	Topic: /operator/body/rotation
 	Port: 1883
 	Format: q0:float,q1:float,q2:float,q3:float
 
@@ -27,18 +27,18 @@
 จากนั้นส่งค่า rotation ซึ่งเป็นข้อมูล quarternion q0 = x, q1 = y, q2 = z, q3 = w และ translation ในรูปแบบ x,y,z เป็นข้อมูล float 4 ตำแหน่ง
 โดยใช้ protocol เป็น mqtt
 
-	Topic: \operator\sholderleft\rotation
+	Topic: /operator/sholderleft/rotation
 	Port: 1883
 	Format: q0:float,q1:float,q2:float,q3:float
 
-	Topic: \operator\sholderright\translation
+	Topic: /operator/sholderright/translation
 	Port: 1883
 	Format: x:float,y:float,z:float
 
-	Topic: \operator\handleft\rotation
+	Topic: /operator/handleft/rotation
 	Port: 1883
 	Format: q0:float,q1:float,q2:float,q3:float
 
-	Topic: \operator\handright\translation
+	Topic: /operator/handright/translation
 	Port: 1883
 	Format: x:float,y:float,z:float
