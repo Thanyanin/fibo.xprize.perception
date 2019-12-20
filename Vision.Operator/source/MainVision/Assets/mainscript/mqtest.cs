@@ -12,7 +12,7 @@ public class mqtest : MonoBehaviour
 {
     public GameObject vrcam;
     public GameObject Head;
-    public GameObject body;
+    public GameObject Body;
     public GameObject shoulderLeft;
     public GameObject shoulderRight;
     private MqttClient client;
@@ -22,12 +22,12 @@ public class mqtest : MonoBehaviour
     int state_start = 0;
     int set_zero = 0;
     float cur_time = 0;
-
+    string server_ip = "192.168.1.102";
     // Use this for initialization
     void Start()
     {
         // create client instance 
-        client = new MqttClient(IPAddress.Parse("192.168.1.102"), 1883, false, null);
+        client = new MqttClient(IPAddress.Parse(server_ip), 1883, false, null);
 
         // register to message received
         client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
@@ -111,7 +111,7 @@ public class mqtest : MonoBehaviour
         //}
         if (GUI.Button(new Rect(100, 40, 80, 20), "Send DATA"))
         {
-            Debug.Log("Map Ip 192.168.3.201:1883");
+            Debug.Log("Map Ip "+ server_ip);
             Debug.Log("start sending");
             state_start = 1;
             Debug.Log("sent");
@@ -128,30 +128,33 @@ public class mqtest : MonoBehaviour
     {
         cur_time = Time.time;
         yield return 0;
-        var ang = vrcam.transform.rotation.eulerAngles;
-        var roll = ang[0];
-        var pitch = ang[1];
-        var yaw = ang[2];
-        var q_vrcam = vrcam.transform.rotation;
-        var q_body = body.transform.rotation;
-        var q_shoulderLeft = shoulderLeft.transform.rotation;
-        var q_shoulderRight = shoulderRight.transform.rotation;
+        //var ang = vrcam.transform.rotation.eulerAngles;
+        //var roll = ang[0];
+        //var pitch = ang[1];
+        //var yaw = ang[2];
+        //var q_vrcam = vrcam.transform.localRotation;
+        //var q_body = body.transform.localRotation;
+        //var q_shoulderLeft = shoulderLeft.transform.rotation;
+        //var q_shoulderRight = shoulderRight.transform.rotation;
 
-        var bodyWithGlobal = q_body[3] + "," + q_body[0] + "," + q_body[1] + "," + q_body[2];
-        var headWithBody = trackWithRef(q_body, q_vrcam);
-        var sholderLeftWithBody = trackWithRef(q_body, q_shoulderLeft);
-        var sholderRightWithBody = trackWithRef(q_body, q_shoulderRight);
+        //var bodyWithGlobal = q_body[3] + "," + q_body[0] + "," + q_body[1] + "," + q_body[2];
+        //var headWithBody = trackWithRef(q_body, q_vrcam);
+        //var sholderLeftWithBody = trackWithRef(q_body, q_shoulderLeft);
+        //var sholderRightWithBody = trackWithRef(q_body, q_shoulderRight);
         var headrotaion = Head.transform.localRotation;
-        string s_headrotation = headrotaion[0] + "," + headrotaion[1] + "," + headrotaion[2] + "," + headrotaion[3];
-        string s_rpy = headrotaion[0] + "," + headrotaion[1] + "," + headrotaion[2] + "," + headrotaion[3];
+        var bodyrotaion = Body.transform.localRotation;
+        string s_headrotation = headrotaion.x + "," + headrotaion.y + "," + headrotaion.z + "," + headrotaion.w;
+        string s_bodyrotation = bodyrotaion.x + "," + bodyrotaion.y + "," + bodyrotaion.z + "," + bodyrotaion.w;
+
+        
         //Debug.Log(vrcam.transform.position);
         var topic_position_roll = "/operator/roll";
         var topic_position_pitch = "/operator/pitch";
         var topic_position_yaw = "/operator/yaw";
-        var topic_position_headrotation = "/operator/headrotation";
-        var topic_position_bodyrotation = "/operator/bodyrotation";
-        var topic_position_shoulderleftrotation = "/operator/shoulderleftrotation";
-        var topic_position_shoulderrightrotation = "/operator/shoulderrightrotation";
+        var topic_position_headrotation = "/operator/head/rotation";
+        var topic_position_bodyrotation = "/operator/body/rotation";
+        var topic_position_shoulderleftrotation = "/operator/shoulderleft/rotation";
+        var topic_position_shoulderrightrotation = "/operator/shoulderright/rotation";
 
 
         //Debug.Log(roll);
@@ -161,7 +164,7 @@ public class mqtest : MonoBehaviour
         if (state_start == 1)
         {
             client.Publish(topic_position_headrotation, System.Text.Encoding.UTF8.GetBytes(s_headrotation), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
-            Debug.Log(headrotaion.eulerAngles);
+            Debug.Log(Head.transform.localEulerAngles);
             //client.Publish(topic_position_rotation, System.Text.Encoding.UTF8.GetBytes(all), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
             //client.Publish(topic_position_headrotation, System.Text.Encoding.UTF8.GetBytes(headWithBody), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
             //client.Publish(topic_position_bodyrotation, System.Text.Encoding.UTF8.GetBytes(bodyWithGlobal), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
