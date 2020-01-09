@@ -22,7 +22,7 @@ public class mqtest : MonoBehaviour
     int state_start = 0;
     int set_zero = 0;
     float cur_time = 0;
-    string server_ip = "192.168.1.186";
+    string server_ip = "192.168.1.102";
     // Use this for initialization
     void Start()
     {
@@ -52,12 +52,12 @@ public class mqtest : MonoBehaviour
         if (mode)
         {
             //rotation pack
-            packed_msg = obj.localRotation.x + "," + obj.localRotation.y + "," + obj.localRotation.z + "," + obj.localRotation.w;
+            packed_msg = obj.localRotation.x.ToString("F4") + "," + obj.localRotation.y.ToString("F4") + "," + obj.localRotation.z.ToString("F4") + "," + obj.localRotation.w.ToString("F4");
         }
         else
         {
             //translation pack
-            packed_msg = obj.localPosition.x + "," + obj.localPosition.y + "," + obj.localPosition.z;
+            packed_msg = obj.localPosition.x.ToString("F4") + "," + obj.localPosition.y.ToString("F4") + "," + obj.localPosition.z.ToString("F4");
         }
         Debug.Log(obj.name + ": " + packed_msg);
         return packed_msg;
