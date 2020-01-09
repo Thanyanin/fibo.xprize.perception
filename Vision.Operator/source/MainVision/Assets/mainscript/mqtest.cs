@@ -22,7 +22,7 @@ public class mqtest : MonoBehaviour
     int state_start = 0;
     int set_zero = 0;
     float cur_time = 0;
-    string server_ip = "192.168.3.201";
+    string server_ip = "192.168.1.186";
     // Use this for initialization
     void Start()
     {
