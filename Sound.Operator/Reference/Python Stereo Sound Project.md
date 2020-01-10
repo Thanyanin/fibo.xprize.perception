@@ -5,6 +5,11 @@
 ## Needs
 - Headphone 
 - 2 Mic
+
+## Hypothesis
+- ทำการ Set Channel ของเเต่ละ Microphone
+- ทำการรวม Microphone 2 ตัว ให้กลายเป็น Microphone Stereo 1 ตัว
+
 ## Reference
 1. https://www.swharden.com/wp/2011-07-08-create-mono-and-stereo-wave-files-with-python/
 1. https://3diosound.com/
