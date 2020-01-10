@@ -1,4 +1,4 @@
-# Communication Module Client
+# SoundClient
 ## System Overview
 ![Diagram](src/SoundSocketDiagram.JPG)
 
