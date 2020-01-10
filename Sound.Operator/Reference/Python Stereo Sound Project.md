@@ -1,1 +1,1 @@
-B
+![Diagram](src/SoundStereoOutline.jpg)
