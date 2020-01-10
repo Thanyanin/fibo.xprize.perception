@@ -14,3 +14,4 @@
 1. https://www.swharden.com/wp/2011-07-08-create-mono-and-stereo-wave-files-with-python/
 1. https://3diosound.com/
 1. https://people.csail.mit.edu/hubert/pyaudio/docs/
+1. https://stackoverflow.com/questions/47919850/play-two-input-with-each-output-on-two-different-channels-simultaneously-using-s
