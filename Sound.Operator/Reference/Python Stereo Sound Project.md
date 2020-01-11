@@ -15,3 +15,4 @@
 1. https://3diosound.com/
 1. https://people.csail.mit.edu/hubert/pyaudio/docs/
 1. https://stackoverflow.com/questions/47919850/play-two-input-with-each-output-on-two-different-channels-simultaneously-using-s
+1. https://www.youtube.com/watch?v=MiTCNlaV56I
