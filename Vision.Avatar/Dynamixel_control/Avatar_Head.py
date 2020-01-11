@@ -10,20 +10,20 @@ port = 1883
 
 portDynamixel = Dynamixel('COM6',1000000)
 portDynamixel.connect()
-motor_type = 'Ax'
+motor_type = "Ax"
 
-def m(ID, position):
+def set_Dynamixel(ID, position):
     portDynamixel.setDeviceMoving(ID, motor_type, position, 1023, 1023)#ID, type, goal position, goal speed, max torque
 
-def p(ID):
+def position_known(ID):
     return portDynamixel.getMotorPosition(ID)
 
-DynamixelposID3 = p(3)
-DynamixelposID2 = p(2)
-DynamixelposID12 = p(12)
-DynamixelgoalposID3 = p(3)
-DynamixelgoalposID2 = p(2)
-DynamixelgoalposID12 = p(12)
+# DynamixelposID2 = position_known(2)
+# DynamixelposID3 = position_known(3)
+# DynamixelposID12 = position_known(12)
+# DynamixelgoalposID2 = position_known(2)
+# DynamixelgoalposID3 = position_known(3)
+# DynamixelgoalposID12 = position_known(12)
 
 def Z_axis(value): # 205,819 น้อยเอียงซ้าย   ปกติ 512
     value = float(value)
@@ -73,25 +73,45 @@ def on_connect(self, client, userdata, rc):
     print("MQTT Connected.")
     self.subscribe("/operator/head/rotation")
 
+#X
+pos_ID2_Past  = 850 
+pos_ID2_Now   = 850
+
+#Z
+pos_ID3_Past  = 512 
+pos_ID2_Now   = 512
+
+#Y
+pos_ID12_Past = 512 
+pos_ID12_Now  = 512
+
 def on_message(client, userdata,msg):
+    global pos_ID2_Past, pos_ID3_Past, pos_ID12_Past, pos_ID2_Now, pos_ID3_Now, pos_ID12_Now
     data_Q = msg.payload.decode("utf-8", "strict")
     data_Q = str(data_Q).split(",")
-    eular = (qtoe(float(data_Q[0]),float(data_Q[1]),float(data_Q[2]),float(data_Q[3])))
+    eular = qtoe(float(data_Q[0]),float(data_Q[1]),float(data_Q[2]),float(data_Q[3]))
     Y = eular[0]
     Z = eular[1]+180
     X = eular[2]
 
-    print("Y  " + str(Y) + "  " + str(Y_axis(Y)))
-    # print("Z  " + str(Z) + "  " + str(Z_axis(Z)))
-    # print("X  " + str(X) + "  " + str(X_axis(X)))
+    #print("Y  " + str(Y) + "  " + str(Y_axis(Y)))
+    #print("Z  " + str(Z) + "  " + str(Z_axis(Z)))
+    #print("X  " + str(X) + "  " + str(X_axis(X)))
 
-    # DynamixelgoalposID2 = X_axis(X)
-    # DynamixelgoalposID3 =  Z_axis(Z)
-    # DynamixelgoalposID12 = Y_axis(Y)
-    #
-    # m(3, DynamixelgoalposID3)
-    # m(2, DynamixelgoalposID2)
-    # m(12, DynamixelgoalposID12)
+    pos_ID2_Now  = X_axis(X)
+    pos_ID3_Now  = Z_axis(Z)
+    pos_ID12_Now = Y_axis(Y)
+
+    if abs(pos_ID2_Past - pos_ID2_Now) < 100:
+            pos_ID2_Past = pos_ID2_Now
+    if abs(pos_ID3_Past - pos_ID3_Now) < 100:
+            pos_ID3_Past = pos_ID3_Now
+    if abs(pos_ID12_Past - pos_ID12_Now) < 100:
+            pos_ID12_Past = pos_ID12_Now
+
+    # set_Dynamixel(3,  pos_ID2_Past)
+    # set_Dynamixel(2,  pos_ID3_Past)
+    # set_Dynamixel(12, pos_ID12_Past)
 
 client = mqtt.Client()
 client.on_connect = on_connect
