@@ -9,6 +9,7 @@
 ## Hypothesis
 - ทำการ Set Channel ของเเต่ละ Microphone
 - ทำการรวม Microphone 2 ตัว ให้กลายเป็น Microphone Stereo 1 ตัว
+- use earpods as Microphones , so u will get a stereo Mic ?  
 
 ## Reference
 1. https://www.swharden.com/wp/2011-07-08-create-mono-and-stereo-wave-files-with-python/
