@@ -12,10 +12,10 @@ Follow this: https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio
 
 ## How to use this: 
 1. Wait for the server open. [User must setting the serverAddressPort ("IP")](first parameter) 
-Ex: python Sound_Client.py 1.2.3.4
-1. Run the Communication Module Client Code.
-1. Finish XD !!!!
+- Ex: python Sound_Client.py 1.2.3.4
+2. Run the Communication Module Client Code.
+3. Finish XD !!!!
 
 ## Warning!!!!!
-Don't forget to check and change *server* IP and Port every time.[Change at serverAddressPort(Line 5)]
+Don't forget to check and change *server* IP every time.[Change at 1st parameter)]
 
