@@ -18,5 +18,3 @@ Follow this: https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio
 ## Warning!!!!!
 Don't forget to check and change *server* IP and Port every time.[Change at serverAddressPort(Line 5)]
 
-## Resource(ไม่เกี่ยวข้องในปัจจุบัน)
-1. https://www.swharden.com/wp/2011-07-08-create-mono-and-stereo-wave-files-with-python/
