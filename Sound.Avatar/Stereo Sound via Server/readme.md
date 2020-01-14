@@ -21,7 +21,7 @@ Follow this: https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio
 Don't forget to check and change *server* IP every time.[Change at 1st parameter)]
 
 # Stereo Cable Structure
-![Diagram](src/Strereo CABLE STRUCTURE_ Xprize.JPG)
+![Diagram](src/Strereo_CABLE_STRUCTURE_ XPrize.JPG)
 
 ## Stereo Cable info
 Separate Channels of Microphone by get sound signal from tip of (TS and TRS)Mic and put that signal to Right and Left(Tip and Ring of TRS Male Jack
