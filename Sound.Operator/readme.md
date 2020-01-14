@@ -1,22 +1,4 @@
-# Sound Avatar
+# Sound.Operator
 
-## requirement
-    +installing python 3.6
-    +installing pyaudio
-
-
-## udpsent
-    +sending sound  via UDP
-
-
-## udprecieve
-    +recieving sound  via UDP
-
-
-## SoundStreaming
-    +sending and recieving sound  via UDP
-
-
-## CommunicationModule_Server
-    +run this code for being server that can send and receive sound via Network
-    +check and change 'Server_IP' with your IPv4 Adress every time (cannot use localhost)
+## Stereo Sound via Server
+Python program for sending sound data (using pyaudio) via UDP with 2 Channels of sound data (Right and Left). But stereo type of sound need the stereo Mic too. If user dont have it ,they can use Mono mic instead but they must create Stereo Cable in readme.md (in Stereo Sound via Server Folder).
