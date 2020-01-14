@@ -36,10 +36,15 @@ Server_IP = str(sys.argv[1])
 Server_Port = 20000
 
 #Device setting
-print(GetInputDeviceInfo())
-Input = int(input("Type 'Mic' Index : "))
-print(GetOutputDeviceInfo())
-Output = int(input("Type 'Sound Output' Index : "))
+if len(sys.argv) > 2:
+    Input = int(sys.argv[2])
+    Output = int(sys.argv[3])
+else:
+    print(GetInputDeviceInfo())
+    Input = int(input("Type 'Mic' Index : "))
+    print(GetOutputDeviceInfo())
+    Output = int(input("Type 'Sound Output' Index : "))
+
 
 sock = socket.socket(socket.AF_INET,  # Internet
                      socket.SOCK_DGRAM)  # UDP
