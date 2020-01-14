@@ -9,7 +9,7 @@
 - PyAudio : "pip install PyAudio"
 
 ## How to install pyaudio:
-Follow this: https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-my-python-how-to-do-it/55630212
+Follow this: https://pypi.org/project/PyAudio/
 
 ## How to use this: 
 1. Wait for the server open. [User must setting the serverAddressPort ("IP")](first parameter) 
