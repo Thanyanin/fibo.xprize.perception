@@ -4,16 +4,23 @@ import sys
 
 p = pyaudio.PyAudio()
 
-def SoundDeviceDetector():
-    print("Sound Device List:")
-    i=0
-    while True:
-        try:
-            print(p. get_device_info_by_index(i))
-            i += 1
-        except:
-            break
-    return "-------------------------------------------------"
+def GetInputDeviceInfo():
+    info = p.get_host_api_info_by_index(0)
+    numdevices = info.get('deviceCount')
+    for i in range(0, numdevices):
+        if (p.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
+            n = p.get_device_info_by_host_api_device_index(0, i).get('name')
+            print("Input Device id ", i,"-", n.encode("utf8").decode("cp950", "ignore"))
+    return "----------------------------------------------------------"
+
+def GetOutputDeviceInfo():
+    info = p.get_host_api_info_by_index(0)
+    numdevices = info.get('deviceCount')
+    for i in range(0, numdevices):
+        if (p.get_device_info_by_host_api_device_index(0, i).get('maxOutputChannels')) > 0:
+            n = p.get_device_info_by_host_api_device_index(0, i).get('name')
+            print("Output Device id ", i,"-", n.encode("utf8").decode("cp950", "ignore"))
+    return "----------------------------------------------------------"
 
 #Client setting
 Server_IP = str(sys.argv[1])
@@ -27,10 +34,10 @@ RATE = 44100
 bufferSize = 4096
 
 #Device setting
-print(SoundDeviceDetector())
+print(GetInputDeviceInfo())
 Input = int(input("Type 'Mic' Index : "))
+print(GetOutputDeviceInfo())
 Output = int(input("Type 'Sound Output' Index : "))
-
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
