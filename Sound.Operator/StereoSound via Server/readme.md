@@ -1,7 +1,7 @@
 # Sound_Client.py
 
 ## System Overview
-![Diagram](src/SoundSocketDiagram.JPG)
+![Diagram](src/SoundSocketDiagram2.JPG)
 
 ## Requirement:
 - Miniconda : https://docs.conda.io/en/latest/miniconda.html 
