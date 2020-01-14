@@ -5,6 +5,7 @@ import sys
 p = pyaudio.PyAudio()
 
 def GetInputDeviceInfo():
+    print("Input Device: ")
     info = p.get_host_api_info_by_index(0)
     numdevices = info.get('deviceCount')
     for i in range(0, numdevices):
@@ -14,6 +15,7 @@ def GetInputDeviceInfo():
     return "----------------------------------------------------------"
 
 def GetOutputDeviceInfo():
+    print("Output Device: ")
     info = p.get_host_api_info_by_index(0)
     numdevices = info.get('deviceCount')
     for i in range(0, numdevices):
