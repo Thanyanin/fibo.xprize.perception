@@ -1,4 +1,5 @@
-# SoundClient
+# Sound_Client.py
+
 ## System Overview
 ![Diagram](src/SoundSocketDiagram.JPG)
 
@@ -19,3 +20,9 @@ Follow this: https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio
 ## Warning!!!!!
 Don't forget to check and change *server* IP every time.[Change at 1st parameter)]
 
+# Stereo Cable Structure
+![Diagram](src/Strereo CABLE STRUCTURE_ Xprize.JPG)
+
+## Stereo Cable info
+Separate Channels of Microphone by get sound signal from tip of (TS and TRS)Mic and put that signal to Right and Left(Tip and Ring of TRS Male Jack
+- Warning : This cable doesn't Support TRRS Mic
