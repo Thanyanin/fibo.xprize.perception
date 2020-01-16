@@ -34,12 +34,17 @@ WIDTH = 2
 CHANNELS = 2
 RATE = 44100
 bufferSize = 4096
+DefaultSettingSwitch = False
+Input = 0
+Output = 0
 
 #Device setting
-if len(sys.argv) > 2:
+if len(sys.argv) == 4:
     Input = int(sys.argv[2])
     Output = int(sys.argv[3])
-else:
+if (len(sys.argv) == 3) and (sys.argv[2] == 0):
+    DefaultSettingSwitch = True
+if (len(sys.argv) == 2):
     print(GetInputDeviceInfo())
     Input = int(input("Type 'Mic' Index : "))
     print(GetOutputDeviceInfo())
@@ -49,17 +54,26 @@ sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 
 #Stream Setting
-pa = p.open(format=p.get_format_from_width(WIDTH),
-            channels=CHANNELS,
-            rate=RATE,
-            input=True,
-            output=True,
-            frames_per_buffer=CHUNK,
-            input_device_index=Input,
-            output_device_index=Output)
+if DefaultSettingSwitch == False:
+    pa = p.open(format=p.get_format_from_width(WIDTH),
+                channels=CHANNELS,
+                rate=RATE,
+                input=True,
+                output=True,
+                frames_per_buffer=CHUNK,
+                input_device_index=Input,
+                output_device_index=Output)
+else:
+    pa = p.open(format=p.get_format_from_width(WIDTH),
+                channels=CHANNELS,
+                rate=RATE,
+                input=True,
+                output=True,
+                frames_per_buffer=CHUNK)
 
 serverAddressPort = (Server_IP, Server_Port)
 
+print("Connect")
 #Streaming
 while True:
     try:
@@ -68,6 +82,7 @@ while True:
 
         data_IN, address = sock.recvfrom(bufferSize) #Recieve Data
         pa.write(data_IN, CHUNK) #streaming Data
+
     except KeyboardInterrupt:
         print("KeyboardInterrupt")
         break
@@ -75,6 +90,7 @@ while True:
     except Exception:
         print("Exception", sys.exc_info())
         break
+print("Disconnect")
 
 
 
