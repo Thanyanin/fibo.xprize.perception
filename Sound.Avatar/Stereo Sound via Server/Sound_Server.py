@@ -30,21 +30,26 @@ WIDTH = 2
 CHANNELS = 2
 RATE = 44100
 bufferSize = 4096
-
+DefaultSettingSwitch = False
+Input = 0
+Output = 0
 #Server setting
 Server_IP = str(sys.argv[1])
 Server_Port = 20000
 
 #Device setting
-if len(sys.argv) > 2:
+if len(sys.argv) == 4:
     Input = int(sys.argv[2])
     Output = int(sys.argv[3])
-else:
+if (len(sys.argv) == 3) and (sys.argv[2] == 0):
+    DefaultSettingSwitch = True
+if (len(sys.argv) == 2):
     print(GetInputDeviceInfo())
     Input = int(input("Type 'Mic' Index : "))
     print(GetOutputDeviceInfo())
     Output = int(input("Type 'Sound Output' Index : "))
-
+else:
+    raise("Argument Error")
 
 sock = socket.socket(socket.AF_INET,  # Internet
                      socket.SOCK_DGRAM)  # UDP
@@ -52,14 +57,22 @@ sock = socket.socket(socket.AF_INET,  # Internet
 sock.bind((Server_IP, Server_Port))
 
 #Stream Setting
-pa = p.open(format=p.get_format_from_width(WIDTH),
-            channels=CHANNELS,
-            rate=RATE,
-            input=True,
-            output=False,
-            frames_per_buffer=CHUNK,
-            input_device_index=Input,
-            output_device_index=Output)
+if DefaultSettingSwitch == False:
+    pa = p.open(format=p.get_format_from_width(WIDTH),
+                channels=CHANNELS,
+                rate=RATE,
+                input=True,
+                output=True,
+                frames_per_buffer=CHUNK,
+                input_device_index=Input,
+                output_device_index=Output)
+else:
+    pa = p.open(format=p.get_format_from_width(WIDTH),
+                channels=CHANNELS,
+                rate=RATE,
+                input=True,
+                output=True,
+                frames_per_buffer=CHUNK)
 
 
 print("* streaming")
@@ -89,7 +102,5 @@ while True:
 
     except Exception:
         print("Exception", sys.exc_info())
-        break
 
-
-
+print("* Server Closed")
