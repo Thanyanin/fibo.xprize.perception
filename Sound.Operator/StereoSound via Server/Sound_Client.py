@@ -42,9 +42,9 @@ Output = 0
 if len(sys.argv) == 4:
     Input = int(sys.argv[2])
     Output = int(sys.argv[3])
-if (len(sys.argv) == 3) and (sys.argv[2] == 0):
+elif (len(sys.argv) == 3) and (int(sys.argv[2]) == 0):
     DefaultSettingSwitch = True
-if (len(sys.argv) == 2):
+elif (len(sys.argv) == 2):
     print(GetInputDeviceInfo())
     Input = int(input("Type 'Mic' Index : "))
     print(GetOutputDeviceInfo())
