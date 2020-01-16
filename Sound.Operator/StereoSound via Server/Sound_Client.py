@@ -49,6 +49,8 @@ if (len(sys.argv) == 2):
     Input = int(input("Type 'Mic' Index : "))
     print(GetOutputDeviceInfo())
     Output = int(input("Type 'Sound Output' Index : "))
+else:
+    raise("Argument Error")
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
