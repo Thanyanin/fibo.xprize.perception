@@ -13,10 +13,10 @@ Follow this: https://pypi.org/project/PyAudio/
 
 ## How to use this: 
 1. Wait for the server open. [User must setting the serverAddressPort ("IP")](first parameter) 
-- Ex: python Sound_Client.py [12.34.56.78] [Input Index] [Output Index]
-- If user don't know [Input Index] and [Output Index] they can set in the program
-2. Run the Communication Module Client Code.
-3. Finish XD !!!!
+- python Sound_Client.py [12.34.56.78] [Input Index] [Output Index]
+- python Sound_Client.py [12.34.56.78] 0 ## Default
+- python Sound_Client.py [12.34.56.78] # SetDevice in Program
+2. Run program
 
 ## Warning!!!!!
 Don't forget to check and change *server* IP every time.[Change at 1st parameter)]
