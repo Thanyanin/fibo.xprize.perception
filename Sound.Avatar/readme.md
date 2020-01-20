@@ -1,23 +1,25 @@
 # Sound Avatar
 
-requirement
+[25 ปี FIBO คลิกที่นี้](Stereo%20Sound%20via%20Server)
+
+## requirement
     -installing python 3.6
     -installing pyaudio
 
 
-udpsent
+## udpsent
     -sending sound  via UDP
 
 
-udprecieve
+## udprecieve
     -recieving sound  via UDP
 
 
-SoundStreaming
+## SoundStreaming
     -sending and recieving sound  via UDP
 
 
-CommunicationModule_Server
+## CommunicationModule_Server
     -run this code for being server that can send and receive sound via Network
     -check and change 'Server_IP' with your IPv4 Adress every time (cannot use localhost)
 
