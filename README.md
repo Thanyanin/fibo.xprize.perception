@@ -2,9 +2,13 @@
 ออกแบบและพัฒนาระบบเกี่ยวกับ Sense ทั้ง 5 ของมนุษย์ ประกอบไปด้วย `Sight`, `Hearing`, Smell, Taste, และ Touch  การออกแบบและพัฒนาระบบของ Perception Unit จะมุ่งเน้น 2 เรื่องคือ Sight และ Hearing
 
 
-# System Overview
+# ภาพรวมของระบบ
 ![System Overview](src/img/Perception&#32;System&#32;Overview&#32;-&#32;2019-10-23&#32;C.png)
-ภาพรวมของระบบ
+
+
+# การเชื่อมต่อกับอุปกรณ์ต่าง ๆ
+![ยังไม่มีรูป](http://www.google.com/search?q=ยังไม่มีรูป+connection.jpg)
+รายละเอียดของแต่ละส่วนสามารถอ่านได้ในหัวข้อ [Feature (*freeeeeeze !*)](#feature-freeeeeeze-)
 
 
 # Feature (*freeeeeeze !*)
