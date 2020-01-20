@@ -1,4 +1,19 @@
-# Sound.Operator
+Communication Module Client
 
-## Stereo Sound via Server
-Python program for sending sound data (using pyaudio) via UDP with 2 Channels of sound data (Right and Left). But stereo type of sound need the stereo Mic too. If user dont have it ,they can use Mono mic instead but they must create Stereo Cable in readme.md (in Stereo Sound via Server Folder).
+Requirement:
+-Python 3.6 (Download Python 3.6.8 here: https://www.python.org/downloads/release/python-368/ )
+-PyAudio : Don't forget to prepare python 3.6 before install this library.
+
+How to install pyaudio:
+-Follow this: https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-my-python-how-to-do-it/55630212
+
+How to use this: 
+-1.Wait for the server open. [User must setting the serverAddressPort ("IP",port)]
+-2.Run the Communication Module Client Code.
+-3.Finish XD !!!!
+
+Warning!!!!!
+Don't forget to check and change *server* IP and Port every time.[Change at serverAddressPort(Line 5)]
+ 
+# Maintainer
+- [Nutkanate Apikomchatkup](https://www.facebook.com/nutkanate.aphikomchutkupt)
