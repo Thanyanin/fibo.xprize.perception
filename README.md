@@ -12,9 +12,9 @@
 
 
 # Feature (*freeeeeeze !*)
-- การรับภาพจาก Avatar ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
-- การควบคุมมุมมองของ Avatar ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
-- การสื่อสารด้วยเสียง ([Link 1](Sound.Operator), [Link 2](Sound.Avatar))
+- การส่ง-รับภาพจาก Avatar ([รับภาพ](Vision.Operator), [ส่งภาพ](Vision.Avatar/beta/streaming))
+- การควบคุมมุมมองของ Avatar ([ส่ง Pose ของ Operator](Vision.Operator), [ควบคุมหัวของ Avatar](Vision.Avatar))
+- การสื่อสารด้วยเสียง ([Operator](Sound.Operator), [Avatar](Sound.Avatar))
 
 
 # Mode
