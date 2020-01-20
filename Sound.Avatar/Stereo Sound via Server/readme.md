@@ -26,4 +26,5 @@ Don't forget to check and change *server* IP every time.[Change at 1st parameter
 
 ## Stereo Cable info
 Separate Channels of Microphone by get sound signal from tip of (TS and TRS)Mic and put that signal to Right and Left(Tip and Ring of TRS Male Jack
-- Warning : This cable doesn't Support TRRS Mic
+
+*** You can use Earbuds or Headset instead Mics.
