@@ -43,6 +43,8 @@ Scene rendering in operator perspective (Virtual World)
 
 ![Capture4](https://user-images.githubusercontent.com/56964016/71962606-60ab2480-322c-11ea-902e-ae47524703c5.PNG)
 
+![82103032_490581101872478_6408810165977481216_n](https://user-images.githubusercontent.com/56964016/72515260-31c32d00-3882-11ea-9565-2f2ae0b43bc4.jpg)
+
 
 Raw data ถูกส่งเข้ามาที่Unity จากmqtt ซึ่งอยู่ในรูปแบบของวิดีโอ จึงทำการCreate Material เพื่อแปลงRaw Videoเป็นVideo Texture เพื่อนำไปRender บนQuad ทั้งสองและ ให้ขนาดของQuad เท่ากับขนาดของวิดีโอที่ได้จากกล้องสองตา 
 
