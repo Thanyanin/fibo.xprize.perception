@@ -1,16 +1,14 @@
 import paho.mqtt.client as mqtt
 from dynamixel_control import Dynamixel
 from math import atan2,sqrt,degrees
+# X,Y,Z หมายถึงการหมุนรอบแกน
 
-host = "192.168.2.102"
+host = "192.168.2.102" 
 port = 1883
 
-# host = "broker.mqttdashboard.com"
-# port = 8000
-
-portDynamixel = Dynamixel('COM6',1000000)
+portDynamixel = Dynamixel('COM6',1000000) #comport,barudrate
 portDynamixel.connect()
-motor_type = "Ax"
+motor_type = "Ax" #ชนิดของ Motor
 
 def set_Dynamixel(ID, position):
     portDynamixel.setDeviceMoving(ID, motor_type, position, 1023, 1023)#ID, type, goal position, goal speed, max torque
@@ -18,14 +16,8 @@ def set_Dynamixel(ID, position):
 def position_known(ID):
     return portDynamixel.getMotorPosition(ID)
 
-# DynamixelposID2 = position_known(2)
-# DynamixelposID3 = position_known(3)
-# DynamixelposID12 = position_known(12)
-# DynamixelgoalposID2 = position_known(2)
-# DynamixelgoalposID3 = position_known(3)
-# DynamixelgoalposID12 = position_known(12)
 
-def Z_axis(value): # 205,819 น้อยเอียงซ้าย   ปกติ 512
+def Z_axis(value):
     value = float(value)
     roll = 512
     if int(value) in range(270,360) or int(value) in range(0,90):
@@ -35,7 +27,7 @@ def Z_axis(value): # 205,819 น้อยเอียงซ้าย   ปกต
             roll = (512 + (value*3.4))
     return int(roll)
 
-def Y_axis(value): #205,819 ปกติ 512
+def Y_axis(value):
     value = float(value)
     yaw = 512
     if int(value) in range(-90,90):
@@ -45,7 +37,7 @@ def Y_axis(value): #205,819 ปกติ 512
             yaw = int(512-(value * 3.4))
     return int(yaw)
 
-def X_axis(value): # 514,964 ปกติ 820
+def X_axis(value):
     value = float(value)
     pitch = 820
     if int(value) in range(-45,45):
@@ -73,17 +65,7 @@ def on_connect(self, client, userdata, rc):
     print("MQTT Connected.")
     self.subscribe("/operator/head/rotation")
 
-#X
-pos_ID2_Past  = 850 
-pos_ID2_Now   = 850
 
-#Z
-pos_ID3_Past  = 512 
-pos_ID2_Now   = 512
-
-#Y
-pos_ID12_Past = 512 
-pos_ID12_Now  = 512
 
 def on_message(client, userdata,msg):
     global pos_ID2_Past, pos_ID3_Past, pos_ID12_Past, pos_ID2_Now, pos_ID3_Now, pos_ID12_Now
@@ -94,9 +76,9 @@ def on_message(client, userdata,msg):
     Z = eular[1]+180
     X = eular[2]
 
-    #print("Y  " + str(Y) + "  " + str(Y_axis(Y)))
-    #print("Z  " + str(Z) + "  " + str(Z_axis(Z)))
-    #print("X  " + str(X) + "  " + str(X_axis(X)))
+    print("Y  " + str(Y) + "  " + str(Y_axis(Y)))
+    print("Z  " + str(Z) + "  " + str(Z_axis(Z)))
+    print("X  " + str(X) + "  " + str(X_axis(X)))
 
     pos_ID2_Now  = X_axis(X)
     pos_ID3_Now  = Z_axis(Z)
@@ -109,15 +91,33 @@ def on_message(client, userdata,msg):
     if abs(pos_ID12_Past - pos_ID12_Now) < 100:
             pos_ID12_Past = pos_ID12_Now
 
-    # set_Dynamixel(3,  pos_ID2_Past)
-    # set_Dynamixel(2,  pos_ID3_Past)
-    # set_Dynamixel(12, pos_ID12_Past)
+    set_Dynamixel(3,  pos_ID2_Past)
+    set_Dynamixel(2,  pos_ID3_Past)
+    set_Dynamixel(12, pos_ID12_Past)
 
-client = mqtt.Client()
-client.on_connect = on_connect
-client.on_message = on_message
-client.connect(host)
-client.loop_forever()
+if __name__ == "__main__":
+    DynamixelposID2 = position_known(2)
+    DynamixelposID3 = position_known(3)
+    DynamixelposID12 = position_known(12)
+    DynamixelgoalposID2 = position_known(2)
+    DynamixelgoalposID3 = position_known(3)
+    DynamixelgoalposID12 = position_known(12)
+    
+    #X
+    pos_ID2_Past  = 850 
+    pos_ID2_Now   = 850
+    #Z
+    pos_ID3_Past  = 512 
+    pos_ID2_Now   = 512
+    #Y
+    pos_ID12_Past = 512 
+    pos_ID12_Now  = 512
+
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.connect(host)
+    client.loop_forever()
 
 
 
