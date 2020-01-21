@@ -1,8 +1,11 @@
-# v.1
+# tcp v.1
+Simple image transfer via socket (tcp) || ~~SENDER~~ ---> RECEIVER ||
+
+# udp v.1
 Simple image transfer via socket (udp) || SENDER ---> RECEIVER ||
 
-# v.2 (v.1 mod)
-Split image and transfer like v.1
+# udp v.2 (udp v.1 mod)
+Split image and transfer like udp v.1
 
 # Note
 
