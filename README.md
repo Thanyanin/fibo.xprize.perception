@@ -2,18 +2,22 @@
 ออกแบบและพัฒนาระบบเกี่ยวกับ Sense ทั้ง 5 ของมนุษย์ ประกอบไปด้วย `Sight`, `Hearing`, Smell, Taste, และ Touch  การออกแบบและพัฒนาระบบของ Perception Unit จะมุ่งเน้น 2 เรื่องคือ Sight และ Hearing
 
 
-# System Overview
+# ภาพรวมของระบบ
 ![System Overview](src/img/Perception&#32;System&#32;Overview&#32;-&#32;2019-10-23&#32;C.png)
-ภาพรวมของระบบ
+
+
+# การเชื่อมต่อกับอุปกรณ์ต่าง ๆ
+![ยังไม่มีรูป](http://www.google.com/search?q=ยังไม่มีรูป+connection.jpg)
+รายละเอียดของแต่ละส่วนสามารถอ่านได้ในหัวข้อ [Feature (*freeeeeeze !*)](#feature-freeeeeeze-)
 
 
 # Feature (*freeeeeeze !*)
-- การรับภาพจาก Avatar ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
-- การควบคุมมุมมองของ Avatar ([Link 1](Vision.Operator), [Link 2](Vision.Avatar))
-- การสื่อสารด้วยเสียง ([Link 1](Sound.Operator), [Link 2](Sound.Avatar))
+- การส่ง-รับภาพจาก Avatar ([รับภาพ](Vision.Operator), [ส่งภาพ](Vision.Avatar/beta/streaming))
+- การควบคุมมุมมองของ Avatar ([ส่ง Pose ของ Operator](Vision.Operator), [ควบคุมหัวของ Avatar](Vision.Avatar))
+- การสื่อสารด้วยเสียง ([Operator](Sound.Operator), [Avatar](Sound.Avatar))
 
 
-# Mode
+# รูปแบบการใช้งาน
 ## Direct Mode (กำลังพัฒนา)
 ![Direct Mode](src/img/Perception&#32;-&#32;Direct&#32;Mode&#32;-&#32;2019-12-12&#32;A.png)
 การทำงานของระบบแบบเรียบง่ายและไม่ซับซ่อน  การเคลื่อนไหวของ Operator ในการปรับเปลี่ยนมุมมองจะถูกส่งตรงไปยัง Avatar จากนั้นข้อมูล**ภาพ**และ**เสียง**จะถูกถ่ายทอดสดส่งตรงจาก Avatar กลับมายัง Operator โดยไม่มีการปรุงแต่งข้อมูลใด ๆ ทั้งสิ้น

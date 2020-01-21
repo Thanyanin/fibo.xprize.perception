@@ -118,7 +118,7 @@ class Dynamixel:
             computedCheckSum = ( ~(checkSumOrdListSum%256) ) % 256
             syncWritePacket.append(computedCheckSum)
             self.serialDevice.write(syncWritePacket)
-            print(syncWritePacket)
+            #print(syncWritePacket)
 
 
-            print(syncWritePacket,"goalPos =",goalPos)
+            #print(syncWritePacket,"goalPos =",goalPos)
