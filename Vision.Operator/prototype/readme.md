@@ -2,16 +2,11 @@
 โปรแกรมต้นแบบการ Streaming รับข้อมูลภาพจาก Avatar มายัง Operator  ใช้ Opencv และ Python 3 ในการพัฒนา
 
 # การใช้งาน
+
+## ตัวอย่างการรับข้อมูลจากทุก ๆ Interface
 ~~~
 python receiver.multisection.py
 ~~~
-
-## Parameter
-### param1
-device index (0, 1, 2, ...) ที่ต้องการใช้ในการอ่านข้อมูลภาพเพื่อใช้ในการ Streaming
-
-### param2
-IP Address ของเครื่องเป้าหมาย (รับข้อูล) ในการการ Streaming
 
 # Note
 
