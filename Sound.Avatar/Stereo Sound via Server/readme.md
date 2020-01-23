@@ -19,7 +19,7 @@ Follow this: https://pypi.org/project/PyAudio/
 2. Run program
 
 ## Warning!!!!!
-Don't forget to check and change *server* IP every time.[Change at 1st parameter)]
+Don't forget to check and change *server* IP every time.[Change at the 1st parameter)]
 
 # Stereo Cable Structure
 ![Diagram](src/Stereo_CABLE_STRUCTURE_XPrize.JPG)
@@ -27,4 +27,4 @@ Don't forget to check and change *server* IP every time.[Change at 1st parameter
 ## Stereo Cable info
 Separate Channels of Microphone by get sound signal from tip of (TS and TRS)Mic and put that signal to Right and Left(Tip and Ring of TRS Male Jack
 
-*** You can use Earbuds or Headset instead Mics.
+*** You can use Earbuds or Headset instead of microphone.
