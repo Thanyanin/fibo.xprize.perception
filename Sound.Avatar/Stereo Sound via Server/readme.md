@@ -1,7 +1,7 @@
 # Sound_Avatar.py
 
 ## System Overview
-![Diagram](src/SoundSocketDiagram.JPG)
+![Diagram](src/SoundSocketDiagram2.JPG)
 
 ## requirement
 -  Miniconda : https://docs.conda.io/en/latest/miniconda.html 
