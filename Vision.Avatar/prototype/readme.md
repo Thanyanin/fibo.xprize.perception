@@ -1,11 +1,11 @@
-# tcp v.1
-Simple image transfer via socket (tcp) || ~~SENDER~~ ---> RECEIVER ||
+# udp v.3
+โปรแกรมต้นแบบการ Streaming ส่งข้อมูลภาพจาก Avatar ไปยัง Operator ด้วยอุปกรณ์ Webcam หรือไฟล์ Video  ใช้ Opencv และ Python 3 ในการพัฒนา
 
-# udp v.1
-Simple image transfer via socket (udp) || SENDER ---> RECEIVER ||
-
-# udp v.2 (udp v.1 mod)
-Split image and transfer like udp v.1
+# การใช้งาน
+## ตัวอย่างการรับข้อมูลจากทุก ๆ Interface
+~~~
+python receiver.multisection.py
+~~~
 
 # Note
 
