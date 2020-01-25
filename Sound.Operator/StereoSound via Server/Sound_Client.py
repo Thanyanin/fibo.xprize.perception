@@ -31,10 +31,10 @@ Server_Port = 20000
 #Pyaudio setting
 CHUNK = 1024
 WIDTH = 2
-CHANNELS = 2
+CHANNELS_MIC = 1
+CHANNELS_SPEAKER = 2
 RATE = 44100
 bufferSize = 4096
-DefaultSettingSwitch = False
 Input = 0
 Output = 0
 
@@ -43,7 +43,8 @@ if len(sys.argv) == 4:
     Input = int(sys.argv[2])
     Output = int(sys.argv[3])
 elif (len(sys.argv) == 3) and (int(sys.argv[2]) == 0):
-    DefaultSettingSwitch = True
+    Input = None
+    Output = None
 elif (len(sys.argv) == 2):
     print(GetInputDeviceInfo())
     Input = int(input("Type 'Mic' Index : "))
@@ -56,22 +57,19 @@ sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 
 #Stream Setting
-if DefaultSettingSwitch == False:
-    pa = p.open(format=p.get_format_from_width(WIDTH),
-                channels=CHANNELS,
-                rate=RATE,
-                input=True,
-                output=True,
-                frames_per_buffer=CHUNK,
-                input_device_index=Input,
-                output_device_index=Output)
-else:
-    pa = p.open(format=p.get_format_from_width(WIDTH),
-                channels=CHANNELS,
-                rate=RATE,
-                input=True,
-                output=True,
-                frames_per_buffer=CHUNK)
+paSPEAKER = p.open(format=p.get_format_from_width(WIDTH),
+                   channels=CHANNELS_SPEAKER,
+                   rate=RATE,
+                   output=True,
+                   frames_per_buffer=CHUNK,
+                   output_device_index=Output)
+
+paMIC = p.open(format=p.get_format_from_width(WIDTH),
+               channels=CHANNELS_MIC,
+               rate=RATE,
+               input=True,
+               frames_per_buffer=CHUNK,
+               input_device_index=Input)
 
 serverAddressPort = (Server_IP, Server_Port)
 
@@ -79,11 +77,11 @@ print("Connect")
 #Streaming
 while True:
     try:
-        data_OUT = pa.read(CHUNK) #Reading Data
+        data_OUT = paMIC.read(CHUNK) #Reading Data
         sock.sendto(data_OUT, serverAddressPort) #Sending Data
 
         data_IN, address = sock.recvfrom(bufferSize) #Recieve Data
-        pa.write(data_IN, CHUNK) #streaming Data
+        paSPEAKER.write(data_IN, CHUNK) #streaming Data
 
     except KeyboardInterrupt:
         print("KeyboardInterrupt")
