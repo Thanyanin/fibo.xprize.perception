@@ -7,7 +7,7 @@
 
 
 # การเชื่อมต่อกับอุปกรณ์ต่าง ๆ
-![ยังไม่มีรูป](http://www.google.com/search?q=ยังไม่มีรูป+connection.jpg)
+![ยังไม่มีรูป](src/img/Peripheral&#32;-&#32;2020-02-06&#32;A.png)
 รายละเอียดของแต่ละส่วนสามารถอ่านได้ในหัวข้อ [Feature (*freeeeeeze !*)](#feature-freeeeeeze-)
 
 
