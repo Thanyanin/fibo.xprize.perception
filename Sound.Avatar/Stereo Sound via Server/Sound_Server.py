@@ -1,69 +1,35 @@
 import socket
 import pyaudio
 import sys
+import setting
 
 p = pyaudio.PyAudio()
 
-def GetInputDeviceInfo():
-    print("Input Device: ")
-    info = p.get_host_api_info_by_index(0)
-    numdevices = info.get('deviceCount')
-    for i in range(0, numdevices):
-        if (p.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
-            n = p.get_device_info_by_host_api_device_index(0, i).get('name')
-            print("Input Device id ", i,"-", n.encode("utf8").decode("cp950", "ignore"))
-    return "----------------------------------------------------------"
+# Server setting
+Server_IP = str(sys.argv[1])
+Server_Port = 20000
 
-def GetOutputDeviceInfo():
-    print("Output Device: ")
-    info = p.get_host_api_info_by_index(0)
-    numdevices = info.get('deviceCount')
-    for i in range(0, numdevices):
-        if (p.get_device_info_by_host_api_device_index(0, i).get('maxOutputChannels')) > 0:
-            n = p.get_device_info_by_host_api_device_index(0, i).get('name')
-            print("Output Device id ", i,"-", n.encode("utf8").decode("cp950", "ignore"))
-    return "----------------------------------------------------------"
-
-#Pyaudio setting
+# Pyaudio setting
 CHUNK = 1024
 WIDTH = 2
 CHANNELS_MIC = 2
 CHANNELS_SPEAKER = 1
 RATE = 44100
 bufferSize = 4096
-
 Input = 0
 Output = 0
 
-#Server setting
-Server_IP = str(sys.argv[1])
-
-Server_Port = 20000
-
-#Device setting
-if len(sys.argv) == 4:
-    Input = int(sys.argv[2])
-    Output = int(sys.argv[3])
-
-elif (len(sys.argv) == 3) and (int(sys.argv[2]) == 0):
-    Input = None
-    Output = None
-
-elif (len(sys.argv) == 2):
-    print(GetInputDeviceInfo())
-    Input = int(input("Type 'Mic' Index : "))
-    print(GetOutputDeviceInfo())
-    Output = int(input("Type 'Sound Output' Index : "))
-
-else:
-    raise("Argument Error")
+# Device setting
+device = setting.device_setting()
+Input = device[0]
+Output = device[1]
 
 sock = socket.socket(socket.AF_INET,  # Internet
                      socket.SOCK_DGRAM)  # UDP
 
 sock.bind((Server_IP, Server_Port))
 
-#Stream Setting
+# Stream Setting
 
 paSPEAKER = p.open(format=p.get_format_from_width(WIDTH),
                    channels=CHANNELS_SPEAKER,
@@ -76,11 +42,10 @@ paSPEAKER = p.open(format=p.get_format_from_width(WIDTH),
 paMIC = p.open(format=p.get_format_from_width(WIDTH),
                channels=CHANNELS_MIC,
                rate=RATE,
-               output=False,
                input=True,
+               output=False,
                frames_per_buffer=CHUNK,
                input_device_index=Input)
-
 
 
 print("* streaming")
@@ -88,7 +53,7 @@ print("* streaming")
 connected_IP = []
 while True:
     try:
-        # Receive
+        # Receive sound from client
         data_IN, address = sock.recvfrom(bufferSize)  # buffer size is 4096 bytes
         paSPEAKER.write(data_IN, CHUNK)
 
@@ -100,7 +65,7 @@ while True:
                 print(address)
         except:
             pass
-        # Send
+        # Send sound to client
         data_OUT = paMIC.read(CHUNK)
         sock.sendto(data_OUT, address)
 
