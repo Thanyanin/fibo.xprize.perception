@@ -3,13 +3,13 @@
 
 
 # สารบัญ
-[ภาพรวมของระบบ](#ภาพรวมของระบบ)
-[การเชื่อมต่อกับอุปกรณ์ต่าง ๆ](#การเชื่อมต่อกับอุปกรณ์ต่าง-ๆ)
-[Feature](#feature-freeeeeeze-)
-[ทีม](#ทีม)
-[รูปแบบการทำงาน](#รูปแบบการทำงาน)
-[Network Configuration](#network-configuration)
-[Communication](#communication)
+- [ภาพรวมของระบบ](#ภาพรวมของระบบ)
+- [การเชื่อมต่อกับอุปกรณ์ต่าง ๆ](#การเชื่อมต่อกับอุปกรณ์ต่าง-ๆ)
+- [Feature](#feature-freeeeeeze-)
+- [ทีม](#ทีม)
+- [รูปแบบการทำงาน](#รูปแบบการทำงาน)
+- [Network Configuration](#network-configuration)
+- [Communication](#communication)
 
 
 # ภาพรวมของระบบ
@@ -28,10 +28,10 @@
 
 
 # ทีม
-[SLAM](SLAM)
-[3D Sound](3D-Sound)
-[Virtual Environment](Virtual-Environment)
-[Motion Capture](Motion-Capture)
+- [SLAM](SLAM)
+- [3D Sound](3D-Sound)
+- [Virtual Environment](Virtual-Environment)
+- [Motion Capture](Motion-Capture)
 
 
 # รูปแบบการทำงาน
