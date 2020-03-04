@@ -29,9 +29,9 @@
 
 # ทีม
 - [SLAM](SLAM)
-- [3D Sound](3D Sound)
-- [Virtual Environment](Virtual Environment)
-- [Motion Capture](Motion Capture)
+- [3D Sound](3D%20Sound)
+- [Virtual Environment](Virtual%20Environment)
+- [Motion Capture](Motion%20Capture)
 
 
 # รูปแบบการทำงาน
