@@ -12,18 +12,18 @@
 
 
 # Feature (*freeeeeeze !*)
-- การส่ง-รับภาพจาก Avatar ([รับภาพ](Vision.Operator), [ส่งภาพ](Vision.Avatar/beta/streaming))
-- การควบคุมมุมมองของ Avatar ([ส่ง Pose ของ Operator](Vision.Operator), [ควบคุมหัวของ Avatar](Vision.Avatar))
-- การสื่อสารด้วยเสียง ([Operator](Sound.Operator), [Avatar](Sound.Avatar))
+- การส่ง-รับภาพจาก Avatar ไปยัง Operator ([รับภาพ](Vision.Operator), [ส่งภาพ](Vision.Avatar/beta/streaming))
+- การควบคุมมุมมองของ Avatar จาก Operator ([ส่ง Pose ของ Operator](Vision.Operator), [ควบคุมหัวของ Avatar](Vision.Avatar))
+- การสื่อสารด้วยเสียงระหว่าง Operator ผ่าน Avatar กับ Recipient ([Operator](Sound.Operator), [Avatar](Sound.Avatar))
 
 
-# รูปแบบการใช้งาน
+# รูปแบบการทำงาน
 ## Direct Mode (กำลังพัฒนา)
 ![Direct Mode](src/img/Perception&#32;-&#32;Direct&#32;Mode&#32;-&#32;2019-12-12&#32;A.png)
 การทำงานของระบบแบบเรียบง่ายและไม่ซับซ่อน  การเคลื่อนไหวของ Operator ในการปรับเปลี่ยนมุมมองจะถูกส่งตรงไปยัง Avatar จากนั้นข้อมูล**ภาพ**และ**เสียง**จะถูกถ่ายทอดสดส่งตรงจาก Avatar กลับมายัง Operator โดยไม่มีการปรุงแต่งข้อมูลใด ๆ ทั้งสิ้น
 *เมื่อระบบเกิด Delay จะทำให้การเคลื่อนไหวของ Operator และ Avatar ไม่สอดคล้องกัน*
 
-## Virtual Reality Mode (อนาคต)
+## Virtual Reality Mode (กำลังพัฒนา)
 ![Virtual Reality Mode](src/img/Perception&#32;-&#32;Virtual&#32;Reality&#32;Mode&#32;-&#32;2019-12-12&#32;B.png)
 การทำงานของระบบแบบโลกเสมือน  การเคลื่อนไหวของ Operator ในการปรับเปลี่ยนมุมมองจะถูกไปยัง Virtual World ในขณะที่ Avatar จะทำการเก็บข้อมูลต่าง ๆ เช่น ภาพ เสียง แรงดัน และอุณหภูมิ เป็นต้น ส่งไปยัง Virtual World เช่นเดียวกัน  ภายใน Virtual World จะรวบรวมข้อมูลต่าง ๆ เพื่อสร้างสภาพแวดล้อมที่สอดคล้องกับข้อมูลจาก Avatar เช่น ข้อมูล**ภาพ**และ**เสียง**อาจถูกปรับปรุง/สังเคราะห์ขึ้นมาใหม่ เป็นต้น  Operator จะเสมือนตัวละครที่เข้าไปอยู่ใน Virtual World ดังกล่าวและสามารถเคลื่อนที่ไปยังจุดต่าง ๆ หรือปฏิสัมพันธ์กับ Virtual World ได้ ในขณะที่ Avatar ก็จะทำการเคลื่อนที่และปฏิสัมพันธ์กับ Real World ซึ่งสอดคล้องกับ Virtual World ด้วยเช่นกัน
 *Virtual World จะตอบสนองอย่างรวดเร็วต่อ Operator เพื่อหลอกเสมือนไม่มี Delay เกิดขึ้นในระบบ*
@@ -49,11 +49,13 @@
     - ค่า**ศูนย์** แสดงถึงการหยุดเลี้ยว/หมุน มีค่าเท่ากับ `0.0` ข้อมูลประเภท **Floting**
     - ค่า**ลบ**แสดงถึงการเลี้ยว/หมุนซ้าย มีค่าน้อยกว่า `0.0` ถึง `-1.0` ข้อมูลประเภท **Floting**
 
+
 ## Avatar
 - *(การทดลอง)* แสดงค่าระยะห่างที่ตรวจวัดได้ระหว่าง Avatar และ Obstacle ด้านหน้า ใน Topic ชื่อว่า `/avatar/distance` เพื่อใช้ในการแสดงข้อมูลให้แก่ Operator  รูปแบบของข้อมูลคือ `<distance>`
   - **distance**
     - ค่า**บวก**แสดงถึงระยะทางที่วัดได้ มีค่าระหว่าง `0.0` ถึง `100.0` มีหน่วยเป็น **Meter** ข้อมูลประเภท **Floting**
     - ค่า**ลบ**แปลว่าไม่สามารถวัดระยะทางได้ มีค่า**น้อยกว่า** `0.0` มีหน่วยเป็น **Meter** ข้อมูลประเภท **Floting**
+
 
 # Note
 - ให้แต่ละทีมย่อยทำการ **Commit** ไปยัง **Branch** ของทีมตัวเอง
