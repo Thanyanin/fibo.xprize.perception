@@ -21,12 +21,6 @@
 รายละเอียดของแต่ละส่วนสามารถอ่านได้ในหัวข้อ [Feature (*freeeeeeze !*)](#feature-freeeeeeze-)
 
 
-# Feature (*freeeeeeze !*)
-- การส่ง-รับภาพจาก Avatar ไปยัง Operator ([รับภาพ](Vision.Operator), [ส่งภาพ](Vision.Avatar/beta/streaming))
-- การควบคุมมุมมองของ Avatar จาก Operator ([ส่ง Pose ของ Operator](Vision.Operator), [ควบคุมหัวของ Avatar](Vision.Avatar))
-- การสื่อสารด้วยเสียงระหว่าง Operator ผ่าน Avatar กับ Recipient ([Operator](Sound.Operator), [Avatar](Sound.Avatar))
-
-
 # ทีม
 - [SLAM](SLAM)
 - [3D Sound](3D%20Sound)
