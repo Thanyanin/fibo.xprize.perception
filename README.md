@@ -45,4 +45,14 @@
 # Note
 - ให้แต่ละทีมย่อยทำการ **Commit** ไปยัง **Branch** ของทีมตัวเอง
 - เมื่อพัฒนาหรือแก้ใขเสร็จแล้ว ให้ทำการ **Pull Request** กลับเข้ามาที่ **Master Branch**
-- เก็บ Source Code ต่าง ๆ ไว้ตาม Directory ของทีมย่อยตัวเอง ประกอบไปด้วย [Vision.Operator](Vision.Operator), [Vision.Avatar](Vision.Avatar), [Sound.Operator](Sound.Operator), และ [Sound.Avatar](Sound.Avatar)
+- เก็บ Source Code ต่าง ๆ ไว้ตาม Directory ของทีมย่อยตัวเอง ประกอบไปด้วย
+  - Direct Mode
+    - [Vision.Operator](Vision.Operator)
+    - [Vision.Avatar](Vision.Avatar)
+    - [Sound.Operator](Sound.Operator)
+    - [Sound.Avatar](Sound.Avatar)
+  - Virtual Reality Mode
+    - [SLAM](SLAM)
+    - [3D Sound](3D%20Sound)
+    - [Virtual Environment](Virtual%20Environment)
+    - [Motion Capture](Motion%20Capture)
